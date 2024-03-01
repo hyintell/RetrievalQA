@@ -31,7 +31,7 @@ To evaluate how **adaptive RAG** performs, we collect questions that the knowled
 
 <p align="center">
   <img 
-    width="40%" height="40%"
+    width="60%" height="60%"
     src="./figs/compare_no_ada_always.png"
   >
   <br>
