@@ -198,6 +198,7 @@ Our data and code are based on previous works:
 - [ToolQA](https://github.com/night-chen/ToolQA)
 - [PopQA](https://github.com/AlexTMallen/adaptive-retrieval)
 - [TriviaQA](https://arxiv.org/abs/1705.03551)
+- [Self-RAG](https://github.com/AkariAsai/self-rag)
 
 
 ## 🐞Questions?
