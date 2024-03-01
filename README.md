@@ -2,11 +2,12 @@
 
 This repository includes the dataset and code of the paper: [RetrievalQA: Assessing Adaptive Retrieval-Augmented Generation for Short-form Open-Domain Question Answering](https://arxiv.org/abs/2402.16457) by *Zihan Zhang*, *Meng Fang*, and *Ling Chen*.
 
-Download data:
-`data/retrievalqa.jsonl` or
+**Download data:**
+[`data/retrievalqa.jsonl`](https://github.com/hyintell/RetrievalQA/tree/main/data) or
 [🤗 HuggingFace Dataset](https://huggingface.co/datasets/zihanz/RetrievalQA) 
 
 
+- [📢 News](#-news)
 - [📖 Introduction](#-introduction)
 - [⚙️ Install Dependencies](#️-install-dependencies)
 - [📋 Data Download \& Statistics](#-data-download--statistics)
@@ -18,27 +19,33 @@ Download data:
 - [🌟Citation](#citation)
 - [🐞Questions?](#questions)
 
+## 📢 News
+- **[2024-03] Upload code and dataset.**
+- **[2024-02] The paper is available on [Arxiv](https://arxiv.org/abs/2402.16457).**
 
+---
 
 ## 📖 Introduction
 
 To evaluate how **adaptive RAG** performs, we collect questions that the knowledge necessary to answer the questions is absent from LLMs. Therefore, LLMs must truthfully decide whether to retrieve to be able to answer the questions correctly.
 
-<figure align="center">
+<p align="center">
   <img 
-    width="300"
+    width="40%" height="40%"
     src="./figs/compare_no_ada_always.png"
   >
-  <figcaption>Comparison between <b>No, Adaptive</b>, and <b>Always</b> retrieval on <b>RetrievalQA</b></figcaption>
-</figure>
+  <br>
+  <em>Comparison between <b>No, Adaptive</b>, and <b>Always</b> retrieval on <b>RetrievalQA</b></em>
+</p>
 
-<figure align="center">
+<p align="center">
   <img 
-    width="300"
+    width="40%" height="40%"
     src="./figs/sankey_vanilla_gpt35_crop.png"
   >
-  <figcaption>At least half of the time, GPT-3.5 is unaware that it needs retrieval (red)</figcaption>
-</figure>
+  <br>
+  <em>At least half of the time, GPT-3.5 is unaware that it needs retrieval (red)</em>
+</p>
 
 
 
@@ -66,7 +73,7 @@ pip install -r requirements.txt
 
 We collect data from 5 sources and filter out answerable questions using GPT-4. In total, RetrievalQA has 1,271 questions. Please refer to the paper for more details.
 
-RetrievalQA is available at the `data/retrievalqa.jsonl`, you can also download it from [🤗 HuggingFace Dataset](https://huggingface.co/datasets/zihanz/RetrievalQA). `data/retrievalqa_gpt4.jsonl` contains only 250 selected examples used to test GPT-4 to save costs.
+RetrievalQA is available at the [`data/retrievalqa.jsonl`](https://github.com/hyintell/RetrievalQA/tree/main/data), you can also download it from [🤗 HuggingFace Dataset](https://huggingface.co/datasets/zihanz/RetrievalQA). `data/retrievalqa_gpt4.jsonl` contains only 250 selected examples used to test GPT-4 to save costs.
 
 |      Category       | Data Source | # Original | # After Filtering | # Avg. Q Tokens | # Avg. Ans Tokens |
 | :-----------------: | :---------: | :---------: | :----------------: | :--------------: | :----------------: |
@@ -104,12 +111,12 @@ where:
 > [!IMPORTANT]
 > We have pre-retrieved relevant documents for each question, as shown in the `context` field in the dataset. You can use these pre-retrieved documents for generation; however, please note that some retrieved documents might **not** have the information necessary to answer the question due to the retriever. 
 > 
-> In this paper, we focus more on the **retrieval accuracy** instead of the quality of the retriever. That is, we are more interested in *how accurate adaptive retrieval methods are in deciding when to retrieve*. You can retrieve documents yourself, as shown in the below [Retriever](#retriever) section.
+> In this paper, we focus more on the **retrieval accuracy** instead of the quality of the retriever. That is, we are more interested in *how accurate adaptive retrieval methods are in deciding when to retrieve*. You can retrieve documents yourself, as shown in the below [Retriever](#🕸️-retriever) section.
 
 
 ## 📊 Reproduce the Results
 
-We have provided executable scripts to reproduce the results. Refer to the `.sh` files for different settings. If you wish to test GPT-3.5/4, you need to provide OpenAI API in `openai_config.txt`.
+We have provided executable scripts to reproduce the results. Refer to the `.sh` files for different settings. If you wish to test GPT-3.5/4, you need to provide OpenAI API in [`openai_config.txt`](https://github.com/hyintell/RetrievalQA/blob/main/openai_config.txt).
 
 ### Run LLM baselines
 
@@ -152,7 +159,7 @@ In the paper, for questions from different sources, we use differnt retrievers.
 
 **RealTimeQA and FreshQA**
 
-For new world knowledge questions, we use Google Search API provided by [SerpApi](https://serpapi.com/). You need to setup a SerpApi API key and refer to `google_search.py` for searching. We only use the `title` and `snippet` from the search results.
+For new world knowledge questions, we use Google Search API provided by [SerpApi](https://serpapi.com/). You need to setup a SerpApi API key and refer to [`google_search.py`](https://github.com/hyintell/RetrievalQA/blob/main/google_search.py#L4) for searching. We only use the `title` and `snippet` from the search results.
 
 **ToolQA**
 
@@ -184,4 +191,4 @@ If you find our code, data, or the paper useful, please cite the paper:
 
 
 ## 🐞Questions?
-If you have questions, please raise an issue. 
+If you have questions, please raise an [issue](https://github.com/hyintell/RetrievalQA/issues). 
