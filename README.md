@@ -17,6 +17,7 @@ This repository includes the dataset and code of the paper: [RetrievalQA: Assess
   - [Run Self-RAG without threshold](#run-self-rag-without-threshold)
 - [🕸️ Retriever](#️-retriever)
 - [🌟Citation](#citation)
+- [Acknowledgement](#acknowledgement)
 - [🐞Questions?](#questions)
 
 ## 📢 News
@@ -188,6 +189,15 @@ If you find our code, data, or the paper useful, please cite the paper:
       primaryClass={cs.CL}
 }
 ```
+
+## Acknowledgement
+
+Our data and code are based on previous works:
+- [RealTimeQA](https://github.com/realtimeqa/realtimeqa_public)
+- [FreshQA](https://github.com/freshllms/freshqa)
+- [ToolQA](https://github.com/night-chen/ToolQA)
+- [PopQA](https://github.com/AlexTMallen/adaptive-retrieval)
+- [TriviaQA](https://arxiv.org/abs/1705.03551)
 
 
 ## 🐞Questions?
