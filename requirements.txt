@@ -1,0 +1,10 @@
+transformers==4.37.2
+vllm==0.3.0
+tqdm
+jsonlines
+tokenizers==0.15.1
+tensorboard==2.14.0
+openai==1.11.1
+tiktoken==0.5.2
+ipykernel
+pandas

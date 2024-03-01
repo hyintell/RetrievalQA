@@ -1,0 +1,6 @@
+{"data_source": "realtimeqa", "count": 188, "total_q_token": 3567, "avg_q_token": 18.97340425531915, "total_ans_token": 585, "avg_ans_token": 3.1117021276595747, "total_context_token": 40737, "avg_context_token": 216.68617021276594}
+{"data_source": "freshqa", "count": 54, "total_q_token": 744, "avg_q_token": 13.777777777777779, "total_ans_token": 211, "avg_ans_token": 3.9074074074074074, "total_context_token": 12284, "avg_context_token": 227.4814814814815}
+{"data_source": "toolqa", "count": 75, "total_q_token": 1630, "avg_q_token": 21.733333333333334, "total_ans_token": 262, "avg_ans_token": 3.493333333333333, "total_context_token": 31899, "avg_context_token": 425.32}
+{"data_source": "popqa", "count": 659, "total_q_token": 5786, "avg_q_token": 8.779969650986343, "total_ans_token": 2629, "avg_ans_token": 3.98937784522003, "total_context_token": 355948, "avg_context_token": 540.1335356600911}
+{"data_source": "triviaqa", "count": 295, "total_q_token": 5103, "avg_q_token": 17.298305084745763, "total_ans_token": 1741, "avg_ans_token": 5.901694915254238, "total_context_token": 207484, "avg_context_token": 703.335593220339}
+{"data_source": "retrievalqa", "count": 1271, "total_q_token": 16830, "avg_q_token": 13.241542092840284, "total_ans_token": 5428, "avg_ans_token": 4.270653029110936, "total_context_token": 648352, "avg_context_token": 510.1117230527144}
