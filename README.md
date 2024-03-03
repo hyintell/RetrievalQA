@@ -125,7 +125,7 @@ We have provided executable scripts to reproduce the results. Refer to the `.sh`
 bash run_lm.sh
 ```
 
-- `prompt_method`: choose from `vanilla` prompting or `TA-ARE` prompting
+- `prompt_method`: choose from `vanilla` prompting or `TAARE` prompting
 - `retrieval_modes`: choose from `["adaptive_retrieval", "always_retrieval", "no_retrieval"]`
 - `model_names`: choose LMs from [HuggingFace](https://huggingface.co/models) or use OpenAI API
   
