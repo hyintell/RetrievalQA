@@ -1,28 +1,31 @@
 # RetrievalQA: Assessing Adaptive Retrieval-Augmented Generation for Short-form Open-Domain Question Answering
 
-This repository includes the dataset and code of the paper: [RetrievalQA: Assessing Adaptive Retrieval-Augmented Generation for Short-form Open-Domain Question Answering](https://arxiv.org/abs/2402.16457) by *Zihan Zhang*, *Meng Fang*, and *Ling Chen*.
+This repository includes the dataset and code of the paper: [RetrievalQA: Assessing Adaptive Retrieval-Augmented Generation for Short-form Open-Domain Question Answering](https://arxiv.org/abs/2402.16457) (**Findings of ACL 2024**) by *Zihan Zhang*, *Meng Fang*, and *Ling Chen*.
 
-**Download data:**
+**⬇️ Download data:**
 [`data/retrievalqa.jsonl`](https://github.com/hyintell/RetrievalQA/tree/main/data) or
-[🤗 HuggingFace Dataset](https://huggingface.co/datasets/zihanz/RetrievalQA) 
+[🤗 HuggingFace Dataset](https://huggingface.co/datasets/hyintell/RetrievalQA) 
 
 
-- [📢 News](#-news)
-- [📖 Introduction](#-introduction)
-- [⚙️ Install Dependencies](#️-install-dependencies)
-- [📋 Data Download \& Statistics](#-data-download--statistics)
-- [📊 Reproduce the Results](#-reproduce-the-results)
-  - [Run LLM baselines](#run-llm-baselines)
-  - [Run Self-RAG with specified threshold](#run-self-rag-with-specified-threshold)
-  - [Run Self-RAG without threshold](#run-self-rag-without-threshold)
-- [🕸️ Retriever](#️-retriever)
-- [🌟Citation](#citation)
-- [Acknowledgement](#acknowledgement)
-- [🐞Questions?](#questions)
+- [RetrievalQA: Assessing Adaptive Retrieval-Augmented Generation for Short-form Open-Domain Question Answering](#retrievalqa-assessing-adaptive-retrieval-augmented-generation-for-short-form-open-domain-question-answering)
+  - [📢 News](#-news)
+  - [📖 Introduction](#-introduction)
+  - [⚙️ Install Dependencies](#️-install-dependencies)
+  - [📋 Data Download \& Statistics](#-data-download--statistics)
+  - [📊 Reproduce the Results](#-reproduce-the-results)
+    - [Run LLM baselines](#run-llm-baselines)
+    - [Run Self-RAG with specified threshold](#run-self-rag-with-specified-threshold)
+    - [Run Self-RAG without threshold](#run-self-rag-without-threshold)
+  - [🕸️ Retriever](#️-retriever)
+  - [🌟Citation](#citation)
+  - [Acknowledgement](#acknowledgement)
+  - [🐞Questions?](#questions)
 
 ## 📢 News
+- **[2024-05-28] Update dataset: add additional 1,514 data that do not require external retrieval**
+- **[2024-05-16] Our paper been accepted to the ACL Findings 2024 🎉!**
 - **[2024-03] Upload code and dataset.**
-- **[2024-02] The paper is available on [Arxiv](https://arxiv.org/abs/2402.16457).**
+- **[2024-02] The paper is available on Arxiv.**
 
 ---
 
@@ -72,9 +75,9 @@ pip install -r requirements.txt
 
 ## 📋 Data Download & Statistics
 
-We collect data from 5 sources and filter out answerable questions using GPT-4. In total, RetrievalQA has 1,271 questions. Please refer to the paper for more details.
+**RetrievalQA** is a short-form open-domain question answering (QA) dataset comprising 2,785 questions covering new world and long-tail knowledge. It contains 1,271 questions needing external knowledge retrieval and 1,514 questions that most LLMs can answer with internal parametric knowledge.
 
-RetrievalQA is available at the [`data/retrievalqa.jsonl`](https://github.com/hyintell/RetrievalQA/tree/main/data), you can also download it from [🤗 HuggingFace Dataset](https://huggingface.co/datasets/zihanz/RetrievalQA). `data/retrievalqa_gpt4.jsonl` contains only 250 selected examples used to test GPT-4 to save costs.
+RetrievalQA is available at the [`data/retrievalqa.jsonl`](https://github.com/hyintell/RetrievalQA/tree/main/data), you can also download it from [🤗 HuggingFace Dataset](https://huggingface.co/datasets/hyintell/RetrievalQA). `data/retrievalqa_gpt4.jsonl` contains only 250 selected examples used to test GPT-4 to save costs.
 
 |      Category       | Data Source | # Original | # After Filtering | # Avg. Q Tokens | # Avg. Ans Tokens |
 | :-----------------: | :---------: | :---------: | :----------------: | :--------------: | :----------------: |
@@ -98,7 +101,8 @@ Here is an example of a data instance:
       "title": "Do We Sleep Longer When We Share a Bed?", 
       "text": "1.4% of respondents have started a sleep divorce, or sleeping separately from their partner, and maintained it in the past year. Adults who have ..."
     }, ...
-  ]
+  ],
+  "param_knowledge_answerable": 0
 }
 ```
 
@@ -106,7 +110,8 @@ where:
 - `data_source`: the origin dataset of the question comes from
 - `question`: the question
 - `ground_truth`: a list of possible answers
-- `context`: a list of dictionaries of retrieved relevant evidence. Note that the `title` of the document might be empty.
+- `context`: a list of dictionaries of retrieved relevant evidence. Note that the `title` of the document might be empty
+- `param_knowledge_answerable`: 0 indicates the question needs external retrieval; 1 indicates the question can be answerable using its parametric knowledge
 
 
 > [!IMPORTANT]
